@@ -77,7 +77,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
 "ale
-Plug 'w0rp/ale'
 
 "Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
@@ -101,6 +100,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug	'junegunn/fzf.vim'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+
+Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
+
 
 "
 "Initialize plugin system
@@ -112,6 +116,8 @@ call plug#end()
 "
 "
 
+
+noremap <Leader>n :lua vim.lsp.buf.formatting_sync(nil, 10000)<CR>
 
 "______________________________________________________________________________
 "
@@ -139,36 +145,6 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 "
 
 "______________________________________________________________________________
-
-
-let g:ale_fixers = {
-\ 'javascript': ['eslint'],
-\ 'javascriptreact': ['eslint'],
-\ }
-
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
-
-let g:ale_fix_on_save = 1
-let g:ale_floating_preview = 1
-let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
-let g:ale_set_highlights = 1
-let g:airline#extensions#ale#enabled = 1
-
-augroup ale_hover_cursor
-  autocmd!
-  autocmd CursorHold * ALEHover
-augroup END
-
-" Initialize plugin papercolor theme
-"set background=dark
-"colorscheme PaperColor
-"
-
-" Initialize plugin material gruvbox
-" set background=dark
- "let g:gruvbox_material_background='light'
-" let g:gruvbox_material_transparent_background=1
  colorscheme onedark
 
 " Initialize plugin emmet
