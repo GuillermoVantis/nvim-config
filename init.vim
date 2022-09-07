@@ -7,10 +7,9 @@ call plug#begin()
 "   - e.g. `call plug#begin('~/.vim/plugged')`
 "   - Avoid using standard Vim directory names like 'plugin'
 
-" Make sure you use single quotes
 
 Plug 'terrortylor/nvim-comment'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
@@ -47,6 +46,7 @@ Plug 'sheerun/vim-polyglot'
 
 " colors
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'navarasu/onedark.nvim'
 
 " Emmet
 Plug 'mattn/emmet-vim'
@@ -77,14 +77,33 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
 "ale
-"Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 
 "Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
 "Plug 'f-person/git-blame.nvim'
 
 
-" Initialize plugin system
+" Typing
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'alvan/vim-closetag'
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Autocomplete
+Plug 'silver/ultisnips'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug	'junegunn/fzf.vim'
+
+
+"
+"Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
 " You can revert the settings after the call like so:
@@ -105,9 +124,13 @@ noremap <leader>s :update<CR>
 set rnu!
 syntax enable
 
-"
-"
+" Fuzzy finder
+nnoremap <leader>j :GFiles<cr>
 
+" Buffers navigation
+
+nnoremap <leader>t :bnext<cr>
+nnoremap <leader>g :bprevious<cr>
 "Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -116,17 +139,26 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 "
 
 "______________________________________________________________________________
-"
-"
-"let g:ale_fixers = {
-"\ 'javascript': ['eslint'],
-"\ 'javascriptreact': ['eslint'],
-"\ }
 
-""let g:ale_sign_error = '❌'
-""let g:ale_sign_warning = '⚠️'
 
-""let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\ 'javascript': ['eslint'],
+\ 'javascriptreact': ['eslint'],
+\ }
+
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+
+let g:ale_fix_on_save = 1
+let g:ale_floating_preview = 1
+let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
+let g:ale_set_highlights = 1
+let g:airline#extensions#ale#enabled = 1
+
+augroup ale_hover_cursor
+  autocmd!
+  autocmd CursorHold * ALEHover
+augroup END
 
 " Initialize plugin papercolor theme
 "set background=dark
@@ -134,10 +166,10 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 "
 
 " Initialize plugin material gruvbox
- set background=dark
+" set background=dark
  "let g:gruvbox_material_background='light'
- let g:gruvbox_material_transparent_background=1
- colorscheme gruvbox-material
+" let g:gruvbox_material_transparent_background=1
+ colorscheme onedark
 
 " Initialize plugin emmet
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -158,7 +190,9 @@ nnoremap <silent> <F3> :NERDTreeToggle<CR>
 " Initialize airline tabs
 let g:airline#extensions#tabline#enabled = 1
 
+
 source $HOME/.config/nvim/plug-config/null-ls.lua
+source $HOME/.config/nvim/COC.vim
 
 
 
@@ -175,7 +209,7 @@ source $HOME/.config/nvim/plug-config/null-ls.lua
 
 
 
-
+"
 
 
 
