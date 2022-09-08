@@ -56,6 +56,7 @@ Plug 'Yggdroot/indentLine'
 
 " Airline
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
@@ -105,6 +106,15 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 
 Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
+" Debugging
+Plug 'mfussenegger/nvim-dap'
+Plug 'theHamsta/nvim-dap-virtual-text'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'nvim-telescope/telescope-dap.nvim'
+
+" Life is better with colors
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'p00f/nvim-ts-rainbow'
 
 "
 "Initialize plugin system
@@ -145,7 +155,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 "
 
 "______________________________________________________________________________
- colorscheme onedark
+colorscheme onedark
 
 " Initialize plugin emmet
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -166,8 +176,8 @@ nnoremap <silent> <F3> :NERDTreeToggle<CR>
 " Initialize airline tabs
 let g:airline#extensions#tabline#enabled = 1
 
-
 source $HOME/.config/nvim/plug-config/null-ls.lua
+source $HOME/.config/nvim/plug-config/nvim-dap.lua
 source $HOME/.config/nvim/COC.vim
 
 
