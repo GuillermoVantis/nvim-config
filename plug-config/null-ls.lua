@@ -9,7 +9,6 @@ require('nvim_comment').setup()
 require('null-ls').setup({
     sources = {
         require('null-ls').builtins.formatting.eslint_d,
-        require('null-ls').builtins.diagnostics.eslint_d,
     },
 })
 

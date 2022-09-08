@@ -176,6 +176,10 @@ nnoremap <silent> <F3> :NERDTreeToggle<CR>
 " Initialize airline tabs
 let g:airline#extensions#tabline#enabled = 1
 
+let g:gitgutter_sign_added = '▎'
+let g:gitgutter_sign_modified = '▎'
+let g:gitgutter_sign_removed = '▎'
+
 source $HOME/.config/nvim/plug-config/null-ls.lua
 source $HOME/.config/nvim/plug-config/nvim-dap.lua
 source $HOME/.config/nvim/COC.vim
