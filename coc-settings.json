@@ -10,8 +10,9 @@
   "diagnostic.warningSign": "",// 
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
-  "diagnostic.enableMessage": "jump",
+  "diagnostic.enableMessage": "always",
   "diagnostic.virtualText": false,
+  "diagnostic.messageTarget": "echo",
   "diagnostic.virtualTextCurrentLineOnly": false,
   "eslint.format.enable": false,
   "javascript.format.enabled": false,
@@ -109,10 +110,12 @@
       ]
     }
   },
+
   "list.insertMappings": {
     "<C-x>": "action:split",
-    "<C-v>": "action:vsplit"
+    "<C-v>": "action:vsplit",
   },
+
   "list.normalMappings": {
     "s": "action:split",
     "v": "action:vsplit"

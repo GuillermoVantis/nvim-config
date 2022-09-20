@@ -116,6 +116,14 @@ Plug 'nvim-telescope/telescope-dap.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
 
+" Sneak around
+Plug 'justinmk/vim-sneak'
+
+"React snippets
+Plug 'SirVer/ultisnips'
+Plug 'mlaursen/vim-react-snippets'
+
+
 "
 "Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -185,9 +193,10 @@ source $HOME/.config/nvim/plug-config/nvim-dap.lua
 source $HOME/.config/nvim/COC.vim
 
 
+inoremap <silent> <c-k> <c-p>
+inoremap <silent> <c-j> <c-n>
 
-
-
+set backupcopy=yes
 
 
 
