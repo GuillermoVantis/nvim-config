@@ -1,26 +1,25 @@
-
-
 {
+  "javascript.suggest.autoImports": true,
+  "javascript.suggest.paths": true,
+  "typescript.suggest.paths": true,
   "diagnostic.enable": true,
-  "coc.source.emoji.filetypes": [
-    "markdown"
-  ],
+  "suggest.autoTrigger": "always",
+  "signature.target": "float",
   "codeLens.enable": false,
   "diagnostic.errorSign": "",
-  "diagnostic.warningSign": "",// 
+  "diagnostic.warningSign": "", //
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
-  "diagnostic.enableMessage": "always",
+  "diagnostic.enableMessage": "never",
   "diagnostic.virtualText": false,
   "diagnostic.messageTarget": "echo",
   "diagnostic.virtualTextCurrentLineOnly": false,
   "eslint.format.enable": false,
+  "signature.enable": true,
+  "signature.triggerSignatureWait": 300,
+  "signature.hideOnTextChange": true,
   "javascript.format.enabled": false,
   "json.format.enable": false,
-  "Lua.diagnostics.globals": [
-    "use",
-    "vim"
-  ],
   "suggest.noselect": true,
   "suggest.enablePreselect": true,
   "suggest.completionItemKindLabels": {
@@ -54,35 +53,43 @@
   "languageserver": {
     "dhall": {
       "command": "dhall-lsp-server",
-      "filetypes": [
-        "dhall"
-      ]
+      "filetypes": ["dhall"]
     },
-    "efm": {
-      "filetypes": [
-        "css",
-        "dockerfile",
-        "graphql",
-        "html",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "lua",
-        "markdown",
-        "sh",
-        "toml",
-        "typescript",
-        "typescriptreact",
-        "yaml"
-      ],
-      "args": [],
-      "command": "efm-langserver"
-    },
+
+    "ccls": {
+    "command": "ccls",
+    "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+    "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+    "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+  },
+
+    // "efm": {
+    //   "filetypes": [
+    //     "css",
+    //     "dockerfile",
+    //     "graphql",
+    //     "html",
+    //     "javascript",
+    //     "javascriptreact",
+    //     "json",
+    //     "lua",
+    //     "markdown",
+    //     "sh",
+    //     "toml",
+    //     "typescript",
+    //     "typescriptreact",
+    //     "yaml"
+    //   ],
+    //   "args": [],
+    //   "command": "efm-langserver"
+    // },
     "haskell": {
       "command": "haskell-language-server-wrapper",
-      "args": [
-        "--lsp"
-      ],
+      "args": ["--lsp"],
       "rootPatterns": [
         "hie.yaml",
         "*.cabal",
@@ -90,43 +97,27 @@
         "cabal.project",
         "package.yaml"
       ],
-      "filetypes": [
-        "haskell",
-        "lhaskell"
-      ]
+      "filetypes": ["haskell", "lhaskell"]
     },
     "scala": {
       "command": "node",
-      "args": [
-        "/home/jesse/bin/sbt-server-stdio.js"
-      ],
-      "filetypes": [
-        "scala"
-      ],
+      "args": ["/home/jesse/bin/sbt-server-stdio.js"],
+      "filetypes": ["scala"],
       "initializationOptions": {},
       "settings": {},
-      "rootPatterns": [
-        "build.sbt"
-      ]
+      "rootPatterns": ["build.sbt"]
     }
   },
 
   "list.insertMappings": {
     "<C-x>": "action:split",
-    "<C-v>": "action:vsplit",
+    "<C-v>": "action:vsplit"
   },
 
   "list.normalMappings": {
     "s": "action:split",
     "v": "action:vsplit"
   },
-  "list.source.files.command": "fdfind",
-  "list.source.files.args": [
-    "--type",
-    "f"
-  ],
-  "rust-analyzer.lens.implementations": true,
-  "rust-analyzer.inlayHints.enable": true,
   "tsserver.enableJavascript": true,
   "typescript.autoClosingTags": true,
   "typescript.format.enabled": false,
@@ -135,5 +126,7 @@
   "typescript.format.semicolons": "remove",
   "typescript.preferences.quoteStyle": "double",
   "typescript.referencesCodeLens.enable": false,
-  "typescript.preferences.useAliasesForRenames": true
+  "typescript.preferences.useAliasesForRenames": true,
+  "javascript.suggest.completeJSDocs": true,
+  "typescript.suggest.completeJSDocs": true
 }

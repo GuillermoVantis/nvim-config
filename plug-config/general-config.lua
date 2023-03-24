@@ -5,3 +5,5 @@ require('onedark').setup({ transparent = false, })
 require('onedark').load()
      
 require('nvim_comment').setup()
+
+

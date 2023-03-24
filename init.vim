@@ -6,8 +6,6 @@ call plug#begin()
 " You can specify a custom plugin directory by passing it as the argument
 "   - e.g. `call plug#begin('~/.vim/plugged')`
 "   - Avoid using standard Vim directory names like 'plugin'
-
-
 Plug 'terrortylor/nvim-comment'
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
@@ -82,7 +80,9 @@ Plug 'nvim-lua/completion-nvim'
 "Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
 "Plug 'f-person/git-blame.nvim'
-
+"
+Plug 'APZelos/blamer.nvim'
+let g:blamer_enabled = 1
 
 " Typing
 Plug 'jiangmiao/auto-pairs'
@@ -123,8 +123,35 @@ Plug 'justinmk/vim-sneak'
 Plug 'SirVer/ultisnips'
 Plug 'mlaursen/vim-react-snippets'
 
+"Git merge
+ Plug 'samoshkin/vim-mergetool'
 
-"
+"vim sorround
+Plug 'tpope/vim-surround'
+
+"For stylus
+Plug 'wavded/vim-stylus'
+"For images
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-media-files.nvim'
+
+Plug 'norcalli/nvim-colorizer.lua'"
+
+"For chatGPT
+Plug 'jackMort/ChatGPT.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-lua/plenary.nvim'
+
+
+
+
+"Node js plugins
+"________________________
+Plug 'prisma/vim-prisma'
+
+" Documentation hover
 "Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
@@ -136,12 +163,12 @@ call plug#end()
 
 
 noremap <Leader>n :lua vim.lsp.buf.formatting_sync(nil, 10000)<CR>
+noremap <leader>a :CocCommand eslint.executeAutofix <CR>
 
 "______________________________________________________________________________
 "
 "Shortcuts
-noremap <leader>s :update<CR>
-
+noremap <leader>s :update <CR>
 
 "______________________________________________________________________________
 " global config
@@ -152,9 +179,10 @@ syntax enable
 nnoremap <leader>j :GFiles<cr>
 
 " Buffers navigation
-
 nnoremap <leader>t :bnext<cr>
 nnoremap <leader>g :bprevious<cr>
+nnoremap <leader>q :bd<cr>
+
 "Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -192,24 +220,7 @@ source $HOME/.config/nvim/plug-config/null-ls.lua
 source $HOME/.config/nvim/plug-config/nvim-dap.lua
 source $HOME/.config/nvim/COC.vim
 
-
-inoremap <silent> <c-k> <c-p>
-inoremap <silent> <c-j> <c-n>
+let g:mergetool_layout = 'mr'
+let g:mergetool_prefer_revision = 'local'
 
 set backupcopy=yes
-
-
-
-
-
-
-
-
-
-
-
-"
-
-
-
-

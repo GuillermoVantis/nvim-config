@@ -9,11 +9,14 @@ require('nvim_comment').setup()
 require('null-ls').setup({
     sources = {
         require('null-ls').builtins.formatting.eslint_d,
+        require('null-ls').builtins.formatting.eslint,
         require('null-ls').builtins.formatting.prettier,
+        require('null-ls').builtins.formatting.blue,
     },
 })
 
-
+require('colorizer').setup()
+require('chatgpt').setup({})
 require('lsp_lines').setup()
 
 vim.diagnostic.config({
